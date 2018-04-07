@@ -24,6 +24,26 @@ return [
                     ],
                 ],
             ],
+            'price' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route'    => '/price',
+                    'defaults' => [
+                        'controller' => Controller\PriceController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
+            'contact' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route'    => '/contact',
+                    'defaults' => [
+                        'controller' => Controller\ContactController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
             'application' => [
                 'type'    => Segment::class,
                 'options' => [
@@ -39,6 +59,8 @@ return [
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
+            Controller\PriceController::class => InvokableFactory::class,
+            Controller\ContactController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [
