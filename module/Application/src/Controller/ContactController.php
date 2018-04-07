@@ -4,9 +4,17 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Form\ContactForm;
+use Application\Service\TrackService;
 
 class ContactController extends AbstractActionController
 {
+
+    private $trackService;
+
+    public function __construct(TrackService $trackService)
+    {
+        $this->trackService = $trackService;
+    }
 
     public function indexAction()
     {
@@ -20,7 +28,7 @@ class ContactController extends AbstractActionController
             $data = $request->getPost();
             $form->setData($data);
             if ($form->isValid()) {
-
+                $this->trackService->sendRegistration($data['name'], $data['email'], $data['cookie']);
             }
         }
         
