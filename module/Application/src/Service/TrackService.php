@@ -25,7 +25,7 @@ class TrackService
             ]
         ];
         
-        $this->client->request('POST', 'http://172.17.0.1:8888', [
+        $this->client->request('POST', 'http://172.17.0.1:8888/register', [
             'json' => $body
         ], $options);
     }
