@@ -12,5 +12,5 @@ if(!document.cookie){
 }
 
 var xhttp = new XMLHttpRequest();
-xhttp.open("POST", "http://localhost:8888/track", true);
+xhttp.open("POST", "https://secret-hamlet-70870.herokuapp.com/track", true);
 xhttp.send('{"trackCode":"' + document.cookie + '","URL":"'+ document.URL +'"}');
